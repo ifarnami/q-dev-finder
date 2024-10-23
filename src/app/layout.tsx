@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import ThemeRegistry from "@/providers/ThemeProvider";
+import MainLayout from "@/layouts/MainLayout";
+import ReactQueryProvider from "@/providers/ReactQueryProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,7 +31,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeRegistry options={{ key: "mui-theme" }}>{children}</ThemeRegistry>
+        <main>
+          <ThemeRegistry options={{ key: "mui-theme" }}>
+            <ReactQueryProvider>
+              <MainLayout>{children}</MainLayout>
+            </ReactQueryProvider>
+          </ThemeRegistry>
+        </main>
       </body>
     </html>
   );
