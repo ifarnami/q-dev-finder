@@ -1,9 +1,5 @@
-import { Button } from "@mui/material";
+import SearchBar from "@/components/SearchBar/SearchBar";
 
 export default function Home() {
-  return (
-      <main>
-        <Button>Hello</Button>
-      </main>
-  );
+  return <SearchBar />;
 }
